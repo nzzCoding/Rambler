@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Rambler, the chaos navigator
+{% endblock %}
+
+{% block content %}
+<!--
+    The navbar requires:
+        a search form
+        a miniature of a profile pic if user is logged in
+        a authentification link (login/register or logout)
+-->
+{% include 'snippets/navbar.html' with additional="main-page" %}
+<div class="main-page sidebar">
+        <!--
+            The sidebar contains a list of default subs if user is logged out
+            otherwise a list of subscriptions
+        -->
+  <ul class="main-page sub-list">
+      {% for sub in default_subs %}
+      <li>
+        <a href="{% url 'rambler_sub' sub.id %}" class="main-page sidebar sub-link">
+          {{sub}}
+        </a>
+      </li>
+      {% endfor %}
+  </ul>
+  <a href="{% url 'create_sub' %}" class="main-page sidebar sub-creation">
+    Create a new sub
+  </a>
+</div>
+<div class="main-page main-body">
+    <!--
+        The main body contains latest posts from subscriptions ordered by date
+    -->
+    {% for post in trending_posts %}
+      {% include 'Discourse/snippets/post_link.html' with post=post %}
+    {% endfor %}
+</div>
+<div class="main-page page-footer">
+    <!--
+        To be filled later
+    -->
+</div>
+{% endblock %}

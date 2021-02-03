@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% include 'snippets/navbar.html' %}
+  {% include 'snippets/sidebar.html' %}
+  <div class="profile-header">
+    <img src={{MEDIA_URL}}{{visited_profile.picture}} alt="profile picture"/>
+    <h4>{{visited_profile.profile_user}}'s profile</h4>
+  </div>
+  <div class="profile-stats">
+    <p>number of subs: {{visited_profile.count_subs}}</p>
+    <p>number of posts: {{visited_profile.count_posts}}</p>
+    <p>number of comments: {{visited_profile.count_comments}}</p>
+  </div>
+  <div class="profile-activity">
+  </div>
+{% endblock %}

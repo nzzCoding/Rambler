@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'snippets/navbar.html' %}
+{% include 'snippets/sidebar.html' %}
+<div class="profile-header">
+  <img src={{MEDIA_URL}}{{user.profile.picture}} alt="profile picture"/>
+  <h4>{{user}}'s profile</h4>
+</div>
+<div class="profile-stats">
+  <p>number of subs: {{user.subs.count}}</p>
+  <p>number of posts: {{user.posts.count}}</p>
+  <p>number of comments: {{user.comments.count}}</p>
+</div>
+<div class="profile-activity">
+</div>
+<div class="profile-footer">
+  <a href="">Edit your profile</a>
+</div>
+{% endblock %}

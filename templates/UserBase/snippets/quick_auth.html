@@ -1,0 +1,10 @@
+<div class="auth-area {{additional|default:''}}">
+  {% if user.is_authenticated %}
+    <img src={{MEDIA_URL}}{{user.profile.picture}} alt="profile pic" class="min-profile-pic"/>
+    <a href="{% url 'own_profile' %}" class="min-profile-link">{{user}}</a>
+    <a href="{% url 'logout' %}" class="auth-link logout-link">Log out</a>
+  {% else %}
+    <a href="{% url 'login' %}" class="auth-link login-link">Login</a>
+    <a href="{% url 'register' %}" class="auth-link register-link">Register</a>
+  {% endif %}
+</div>

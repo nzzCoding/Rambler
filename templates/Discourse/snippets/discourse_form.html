@@ -1,0 +1,5 @@
+<form method="post" action="" id={{form_id}} class={{form_class|default:''}}>
+  {% csrf_token %}
+  {{form.as_p}}
+  <button>{{creation_message}}</button>
+</form>

@@ -1,0 +1,17 @@
+<div class="post-preview {{additional}}">
+  <div class="post-header">
+    <a href="{% url 'rambler_post' post.get_sub.id post.id %}" class="post-link">{{post.title}}</a>
+  </div>
+  <div class="post-body">
+    <p>{{post.get_truncated_content}}</p>
+  </div>
+  <div class="post-footer">
+    <p>
+      posted by
+      <a href="{% url 'profile_detail' post.user.profile.id %}" class="user-link">{{post.user}}</a>
+       on
+      <a href="{% url 'rambler_sub' post.get_sub.id %}" class="sub-link">{{post.get_sub}}</a>
+       at {{post.post_date}}
+     </p>
+  </div>
+</div>

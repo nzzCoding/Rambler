@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% include 'Discourse/snippets/discourse_form.html' with form_id="post-form" creation_message="Create topic" %}
+{% endblock %}

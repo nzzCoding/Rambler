@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'snippets/navbar.html' %}
+{% include 'snippets/sidebar.html' with sub=parent_post.parent %}
+<div class="post-content">
+  <div class="post-header">
+    <h3 class="post-title">{{rambler_post.title}}</h3>
+    <p class="post-content">{{rambler_post.content}}</p>
+    <span class="post-info">posted by
+      <a href="{% url 'profile_detail' rambler_post.user.profile.id %}">
+        {{rambler_post.user}}
+      </a>
+      on {{rambler_post.post_date}}
+    </span>
+  </div>
+  <div class="post-comments">
+    {% for comment in rambler_post.get_comments %}
+    <h6>
+      <a href="{% url 'profile_detail' comment.user.profile.id %}">
+        <img src="{{MEDIA_URL}}{{comment.user.profile.picture}}" alt="profile pic"/>
+        {{comment.user}}
+      </a> says:
+    </h6>
+    <p>{{comment.content}}</p>
+    <p>commented on {{comment.post_date}}</p>
+    {% endfor %}
+  </div>
+  <div class="post-footer">
+    <a href="{% url 'create_comment' sub_id post_id %}">add a comment</a>
+  </div>
+</div>
+{% endblock %}
