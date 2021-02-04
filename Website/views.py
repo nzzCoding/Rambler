@@ -43,7 +43,10 @@ class RamblerFormContextMixin(RamblerModelContextMixin):
     """
     def get_context_data(self, **kwargs):
         context = super(RamblerFormContextMixin, self).get_context_data(**kwargs)
-        context["form"] = self.template_form()
+        if "form" in kwargs:
+            context["form"] = kwargs["form"]
+        else:
+            context["form"] = self.template_form()
         return context
 
 

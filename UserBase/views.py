@@ -25,6 +25,7 @@ class LoginView(wv.RamblerBaseFormView):
                 return redirect(self.success_url)
             else:
                 form.add_error(None, "Authentication failed")
+        kwargs["form"] = form#used in self.get_context_data(**kwargs), refer to RamblerFormContextMixin
         return render(request, self.url_route, self.get_context_data(**kwargs))
 
 
@@ -43,6 +44,7 @@ class RegisterView(wv.RamblerBaseFormView):
             auth_user = authenticate(request, username=username, password=password)
             login(request, auth_user)
             return redirect(self.success_url)
+        kwargs["form"] = form#used in self.get_context_data(**kwargs), refer to RamblerFormContextMixin
         return render(request, self.url_route, self.get_context_data(**kwargs))
 
 
