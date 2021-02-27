@@ -11,7 +11,7 @@ Rambler, the chaos navigator
         a miniature of a profile pic if user is logged in
         a authentification link (login/register or logout)
 -->
-{% include 'snippets/navbar.html' with additional="main-page" %}
+{% include 'snippets/navbar.html' %}
 <div class="main-page sidebar">
         <!--
             The sidebar contains a list of default subs if user is logged out
@@ -20,13 +20,13 @@ Rambler, the chaos navigator
   <ul class="main-page sub-list">
       {% for sub in default_subs %}
       <li>
-        <a href="{% url 'rambler_sub' sub.id %}" class="main-page sidebar sub-link">
+        <a href="{% url 'rambler_sub' sub.id %}" class="sub-link">
           {{sub}}
         </a>
       </li>
       {% endfor %}
   </ul>
-  <a href="{% url 'create_sub' %}" class="main-page sidebar sub-creation">
+  <a href="{% url 'create_sub' %}" class="sub-creation">
     Create a new sub
   </a>
 </div>

@@ -1,4 +1,4 @@
-<div class="auth-area {{additional|default:''}}">
+<div id="quick-auth" class="auth-area">
   {% if user.is_authenticated %}
     <img src={{MEDIA_URL}}{{user.profile.picture}} alt="profile pic" class="min-profile-pic"/>
     <a href="{% url 'own_profile' %}" class="min-profile-link">{{user}}</a>
