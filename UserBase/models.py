@@ -11,6 +11,9 @@ class Profile(models.Model):
     last_edition_date = models.DateTimeField(auto_now=True)
     picture = models.FileField(blank=True, null=True, upload_to='UserBase')
 
+    def __str__(self):
+        return self.profile_user.username
+
     def get_comments(self):
         return self.profile_user.comments.all()
 

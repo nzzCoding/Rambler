@@ -2,10 +2,9 @@
 
 {% block content %}
   {% include 'snippets/navbar.html' %}
-  {% include 'snippets/sidebar.html' %}
   <div class="profile-header">
     <img src={{MEDIA_URL}}{{visited_profile.picture}} alt="profile picture"/>
-    <h4>{{visited_profile.profile_user}}'s profile</h4>
+    <h4>{{visited_profile}}'s profile</h4>
   </div>
   <div class="profile-stats">
     <p>number of subs: {{visited_profile.count_subs}}</p>

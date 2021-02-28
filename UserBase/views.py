@@ -66,8 +66,13 @@ class ProfileEditView(wv.RamblerBaseContextMixin, wv.LogReqRamblerBaseView):
         return render(request, self.url_route, self.get_context_data(**kwargs))
 
 
-class ProfileDetailView(wv.RamblerBaseContextMixin, wv.RamblerBaseView):
+class ProfileDetailView(wv.RamblerModelContextMixin, wv.RamblerBaseView):
     url_route = 'UserBase/profile_overview.html'
+
+    def map_template_name(self, **kwargs):
+        return {
+            "visited_profile": Profile.objects.get(id=self.kwargs.get("profile_key"))
+        }
 
     def get(self, request, *args, **kwargs):
         if self.request.user.is_authenticated:
