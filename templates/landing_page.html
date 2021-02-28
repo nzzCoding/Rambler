@@ -12,12 +12,12 @@ Rambler, the chaos navigator
         a authentification link (login/register or logout)
 -->
 {% include 'snippets/navbar.html' %}
-<div class="main-page sidebar">
+<div class="sidebar">
         <!--
             The sidebar contains a list of default subs if user is logged out
             otherwise a list of subscriptions
         -->
-  <ul class="main-page sub-list">
+  <ul class="sub-list">
       {% for sub in default_subs %}
       <li>
         <a href="{% url 'rambler_sub' sub.id %}" class="sub-link">
@@ -30,7 +30,7 @@ Rambler, the chaos navigator
     Create a new sub
   </a>
 </div>
-<div class="main-page main-body">
+<div class="main-body">
     <!--
         The main body contains latest posts from subscriptions ordered by date
     -->
@@ -38,7 +38,7 @@ Rambler, the chaos navigator
       {% include 'Discourse/snippets/post_link.html' with post=post %}
     {% endfor %}
 </div>
-<div class="main-page page-footer">
+<div class="page-footer">
     <!--
         To be filled later
     -->

@@ -2,8 +2,7 @@
 
 {% block content %}
 {% include 'snippets/navbar.html' %}
-{% include 'snippets/sidebar.html' with sub=parent_post.parent %}
-<div class="post-content">
+<div class="post-container">
   <div class="post-header">
     <h3 class="post-title">{{rambler_post.title}}</h3>
     <p class="post-content">{{rambler_post.content}}</p>
@@ -14,7 +13,7 @@
       on {{rambler_post.post_date}}
     </span>
   </div>
-  <div class="post-comments">
+  <div class="comments-container">
     {% for comment in rambler_post.get_comments %}
     <h6>
       <a href="{% url 'profile_detail' comment.user.profile.id %}">

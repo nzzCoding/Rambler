@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% include 'snippets/navbar.html' with additional="sub-view" %}
-{% include 'snippets/sidebar.html' %}
-<div class="sub-view sub-header">
-  <h2>sub banner</h2>
+{% include 'snippets/navbar.html' %}
+<div class="sub-header">
+  <h2>{{rambler_sub.name}}</h2>
 </div>
-<div class="sub-view sub-body">
+<div class="sub-body">
   {% for post in rambler_sub.get_posts %}
     {% include 'Discourse/snippets/post_link.html' with post=post %}
   {% endfor %}
 </div>
-<div class="sub-view sub-footer">
+<div class="sub-footer">
   <a href="{% url 'create_post' sub_id %}">Add a new post</a>
 </div>
 {% endblock %}
